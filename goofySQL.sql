@@ -22,7 +22,7 @@ SELECT DISTINCT *
 FROM reviews
 ORDER BY thumbs_up_count DESC;
 
--- Pos and Neg avgs
+-- Pos and Neg score avg
 SELECT
 	bank,
 	AVG(CASE WHEN score >= 3 THEN score END) AS Positive_Avg,
@@ -66,4 +66,24 @@ SELECT app_version, bank,
 	COUNT(CASE WHEN score <= 2 THEN complaint_tags END) AS app_version_negative_complaints
 FROM reviews
 GROUP BY bank, app_version
-ORDER BY app_version_score DESC;
+ORDER BY app_version_negative_complaints DESC;
+
+-- WITH negative_review_count AS (
+-- SELECT app_version, bank,
+-- 	COUNT(CASE WHEN score <= 2 THEN complaint_tags END) AS app_version_negative_complaints
+-- FROM reviews
+-- GROUP BY bank, app_version
+-- ORDER BY app_version_negative_complaints DESC
+-- )
+
+-- Query by month on total negative reviews
+SELECT 
+    DATE_FORMAT(review_date, '%Y-%m') AS month,
+    bank,
+    COUNT(*) AS total_reviews,
+    SUM(CASE WHEN score <= 2 THEN 1 ELSE 0 END) AS negative_reviews,
+    ROUND(100.0 * SUM(CASE WHEN score <= 2 THEN 1 ELSE 0 END) / COUNT(*), 1) AS negative_pct
+FROM reviews
+GROUP BY month, bank
+ORDER BY bank, month;
+
