@@ -1,0 +1,25 @@
+bank,tag,tag_count
+Metrobank,"App Stability",682
+BPI,"App Stability",406
+BDO,"App Stability",231
+UnionBank,"App Stability",200
+UnionBank,"Customer Service",115
+BPI,"Customer Service",44
+BDO,"Customer Service",32
+Metrobank,"Customer Service",31
+Metrobank,Login/Authentication,513
+BDO,Login/Authentication,372
+UnionBank,Login/Authentication,347
+BPI,Login/Authentication,260
+Metrobank,Performance,746
+BPI,Performance,178
+UnionBank,Performance,109
+BDO,Performance,98
+Metrobank,"Transaction Failures",101
+BDO,"Transaction Failures",76
+BPI,"Transaction Failures",32
+UnionBank,"Transaction Failures",20
+UnionBank,Uncategorized,2326
+BDO,Uncategorized,2301
+BPI,Uncategorized,2228
+Metrobank,Uncategorized,1394
